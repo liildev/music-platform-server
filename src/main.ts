@@ -3,11 +3,10 @@ import { AppModule } from './app.module';
 
 async function start() {
   try {
-    const PORT = process.env.PORT || 7000
     const app = await NestFactory.create(AppModule);
     app.enableCors()
     
-    await app.listen(PORT, () => console.log(`*${PORT}`));
+    await app.listen(process.env.PORT || 3000);
   } catch (e) {
     console.log(e);
   }
